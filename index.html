@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清風咖啡｜臺中東區溫暖咖啡館</title>
+    <meta name="description" content="清風咖啡位於臺中市東區，距離臺中火車站步行約 8 分鐘，提供手沖咖啡、自製甜點、穩定 Wi-Fi 與充足插座。">
+
+    <style>
+        :root {
+            --brown: #4a3024;
+            --dark-brown: #332019;
+            --cream: #f7f1e7;
+            --light-wood: #d8c0a2;
+            --wood: #b9946a;
+            --white: #fffdf9;
+            --text: #4a4039;
+            --border: #e5d8c8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.8;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 253, 249, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--brown);
+            letter-spacing: 0.12em;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--wood); }
+
+        section { padding: 90px 0; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            display: block;
+            color: var(--wood);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            color: var(--brown);
+            font-size: 2rem;
+            letter-spacing: 0.08em;
+        }
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(60, 39, 28, 0.45), rgba(60, 39, 28, 0.45)),
+                linear-gradient(135deg, #b9946a, #e7d3b8 55%, #f4eadc);
+            color: white;
+        }
+
+        .hero-content { max-width: 650px; }
+
+        .hero small {
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 0.25em;
+            font-size: 0.85rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 550px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 3px;
+            background: var(--cream);
+            color: var(--brown);
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .about { background: var(--cream); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 360px;
+            background: linear-gradient(135deg, #c5a57f, #e7d8c4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(74, 48, 36, 0.7);
+            font-size: 4rem;
+        }
+
+        .about-text h3 {
+            color: var(--brown);
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+
+        .about-text p { margin-bottom: 15px; }
+
+        .menu { background: var(--white); }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            border: 1px solid var(--border);
+            background: #fff;
+            padding: 30px;
+        }
+
+        .menu-card h3 {
+            color: var(--brown);
+            font-size: 1.35rem;
+            padding-bottom: 15px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .menu-item span:last-child {
+            color: var(--brown);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .space { background: var(--cream); }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .feature p { font-size: 0.9rem; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .info-box {
+            border-left: 3px solid var(--wood);
+            padding-left: 25px;
+        }
+
+        .info-box h3 {
+            color: var(--brown);
+            margin-bottom: 18px;
+            font-size: 1.4rem;
+        }
+
+        .info-row {
+            display: flex;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .info-row strong {
+            width: 110px;
+            color: var(--brown);
+        }
+
+        .map-link {
+            color: #8b633f;
+            text-decoration: underline;
+        }
+
+        .contact {
+            background: var(--brown);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .contact .section-title h2 { color: var(--cream); }
+
+        .contact .section-title span { color: var(--light-wood); }
+
+        .contact p { margin-bottom: 25px; }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 1px solid var(--light-wood);
+            color: var(--cream);
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--cream);
+            color: var(--brown);
+        }
+
+        footer {
+            background: var(--dark-brown);
+            color: #cdbca9;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            .menu-grid { grid-template-columns: 1fr 1fr; }
+            .features { grid-template-columns: 1fr 1fr; }
+            .about-grid { gap: 35px; }
+        }
+
+        @media (max-width: 650px) {
+            header { position: relative; }
+
+            .nav {
+                flex-direction: column;
+                padding: 15px 0;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a { font-size: 0.82rem; }
+
+            section { padding: 65px 0; }
+
+            .hero { min-height: 560px; }
+
+            .hero h1 { font-size: 3rem; }
+
+            .hero p { font-size: 1rem; }
+
+            .about-grid,
+            .menu-grid,
+            .features,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image { min-height: 250px; }
+
+            .section-title h2 { font-size: 1.7rem; }
+
+            .info-box { padding-left: 18px; }
+
+            .info-row { flex-direction: column; }
+
+            .info-row strong { width: auto; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <a href="#top" class="logo">清風咖啡</a>
+
+            <nav aria-label="主要導覽">
+                <ul>
+                    <li><a href="#about">關於我們</a></li>
+                    <li><a href="#menu">菜單</a></li>
+                    <li><a href="#space">空間</a></li>
+                    <li><a href="#info">營業資訊</a></li>
+                    <li><a href="#contact">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero" aria-label="清風咖啡介紹">
+            <div class="container">
+                <div class="hero-content">
+                    <small>TAICHUNG • EAST DISTRICT</small>
+                    <h1>清風咖啡</h1>
+                    <p>
+                        在城市裡留一點安靜的時間。<br>
+                        一杯手沖、一份甜點，陪你慢慢度過午後。
+                    </p>
+                    <a href="#menu" class="btn">查看今日菜單</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <span>ABOUT US</span>
+                    <h2>關於我們</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-image" aria-label="咖啡館示意圖片">☕</div>
+
+                    <div class="about-text">
+                        <h3>一杯咖啡，一段安靜的時間</h3>
+                        <p>
+                            清風咖啡位於臺中市東區，
+                            距離臺中火車站步行約 8 分鐘。
+                            我們希望提供一個溫暖、舒服，
+                            能讓人慢下來的咖啡空間。
+                        </p>
+                        <p>
+                            不論是閱讀、工作、聊天，
+                            或只是想一個人喝杯咖啡，
+                            都歡迎來到清風坐坐。
+                        </p>
+                        <p>
+                            平日下午不限時，並提供穩定 Wi-Fi
+                            與充足插座，讓工作與休息都能自在進行。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu" id="menu">
+            <div class="container">
+                <div class="section-title">
+                    <span>MENU</span>
+                    <h2>咖啡與甜點</h2>
+                </div>
+
+                <div class="menu-grid">
+                    <article class="menu-card">
+                        <h3>☕ 咖啡</h3>
+                        <div class="menu-item"><span>美式咖啡</span><span>$100</span></div>
+                        <div class="menu-item"><span>拿鐵咖啡</span><span>$130</span></div>
+                        <div class="menu-item"><span>卡布奇諾</span><span>$130</span></div>
+                        <div class="menu-item"><span>手沖咖啡</span><span>$160</span></div>
+                    </article>
+
+                    <article class="menu-card">
+                        <h3>🍵 非咖啡</h3>
+                        <div class="menu-item"><span>熱紅茶</span><span>$100</span></div>
+                        <div class="menu-item"><span>蜂蜜柚子茶</span><span>$120</span></div>
+                        <div class="menu-item"><span>鮮奶茶</span><span>$120</span></div>
+                        <div class="menu-item"><span>可可牛奶</span><span>$130</span></div>
+                    </article>
+
+                    <article class="menu-card">
+                        <h3>🍰 自製甜點</h3>
+                        <div class="menu-item"><span>巴斯克乳酪蛋糕</span><span>$150</span></div>
+                        <div class="menu-item"><span>手工布丁</span><span>$100</span></div>
+                        <div class="menu-item"><span>季節水果塔</span><span>$150</span></div>
+                        <div class="menu-item"><span>每日甜點</span><span>詢店內</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="space" id="space">
+            <div class="container">
+                <div class="section-title">
+                    <span>SPACE & FACILITIES</span>
+                    <h2>舒服的空間，專心做自己的事</h2>
+                </div>
+
+                <div class="features">
+                    <article class="feature">
+                        <div class="feature-icon">🔌</div>
+                        <h3>插座充足</h3>
+                        <p>多數座位附近設有插座，適合筆電工作與讀書。</p>
+                    </article>
+
+                    <article class="feature">
+                        <div class="feature-icon">📶</div>
+                        <h3>穩定 Wi-Fi</h3>
+                        <p>提供穩定網路，適合工作、學習與上網。</p>
+                    </article>
+
+                    <article class="feature">
+                        <div class="feature-icon">🌿</div>
+                        <h3>安靜環境</h3>
+                        <p>木質與米白色調，打造舒服放鬆的空間。</p>
+                    </article>
+
+                    <article class="feature">
+                        <div class="feature-icon">⏰</div>
+                        <h3>平日下午不限時</h3>
+                        <p>平日下午可以慢慢坐，享受屬於自己的咖啡時間。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="info">
+            <div class="container">
+                <div class="section-title">
+                    <span>INFORMATION</span>
+                    <h2>營業資訊</h2>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-box">
+                        <h3>營業時間</h3>
+                        <div class="info-row"><strong>週一～週五</strong><span>09:00－19:00</span></div>
+                        <div class="info-row"><strong>週六</strong><span>10:00－20:00</span></div>
+                        <div class="info-row"><strong>週日</strong><span>10:00－18:00</span></div>
+                        <p style="margin-top: 15px; font-size: 0.9rem;">
+                            ※ 實際營業時間與公休日請以店家最新公告為準。
+                        </p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>店家位置</h3>
+                        <p>
+                            臺中市東區<br>
+                            臺中火車站步行約 8 分鐘
+                        </p>
+                        <p style="margin-top: 15px;">
+                            <a
+                                class="map-link"
+                                href="https://www.google.com/maps/search/?api=1&query=清風咖啡+台中市東區"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                📍 在 Google Maps 查看位置 →
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <span>CONTACT</span>
+                    <h2>今天，來喝杯咖啡吧</h2>
+                </div>
+
+                <p>
+                    想找一個安靜的地方工作、閱讀，
+                    或只是享受一杯手沖咖啡？
+                    歡迎來清風坐坐。
+                </p>
+
+                <div class="contact-buttons">
+                    <a href="tel:+886400000000" class="contact-btn">📞 電話聯絡</a>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=清風咖啡+台中市東區"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-btn">
+                        📍 開啟 Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 清風咖啡 Qing Feng Coffee. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
